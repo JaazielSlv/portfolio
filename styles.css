@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('planodefundo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+html {
+    letter-spacing: 1.4px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.container::after,
+.container::before {
+    content: " ";
+    display: table;
+}
+
+.container:after {
+    clear: both;
+}
+
+.box-1 {
+    width: 100%;
+}
+
+.box-2 {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 7%;
+    border-radius: 3px;
+
+}
+.frente {
+    background-image: url('../img/planodefundo.png');
+
+}
+.detalhe-nome {
+    margin-top: 20%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 1.7em;
+}
+.nome {
+    margin-top: 0%;
+    margin-bottom: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    -webkit-text-stroke: 2px white;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 4.5em;
+}
+.cargo {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+    -webkit-text-stroke: 2px white;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 2.5em;
+}
+.icon {
+    margin-top: 0%;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+.box-2 img:hover {
+    width: 40%;
+    height: 40%;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
