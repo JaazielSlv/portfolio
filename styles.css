@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('img/planodefundo.png');
+    /* background-image: url('img/planodefundo.png'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -10,15 +10,16 @@
 }
 html {
     letter-spacing: 1.4px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Lilita One", sans-serif;
     font-weight: 400;
     font-style: normal;
+
 }
 
-.poppins-black {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: normal;
+.lilita-one-regular {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .container::after,
@@ -33,28 +34,49 @@ html {
 
 .box-1 {
     width: 100%;
+    align-items: center;
 }
 
 .box-2 {
-    width: 40%;
-    margin-left: 4%;
-    margin-right: 4%;
-    margin-top: 7%;
+    width: 45%;
+    margin-left: 2%;
     margin-bottom: 10%;
     border-radius: 3px;
 
-}
-.frente {
-    background-image: url('../img/planodefundo.png');
 
 }
-.detalhe-nome {
-    margin-top: 20%;
-    margin-bottom: 0;
+
+.capa {
+    width: 100%;
+    height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    text-align: center;
+    background-image: url('img/planodefundo.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.capa svg {
+
+    scale: 3.5;
+
+    text-align: center;
+
+
+
+
+}
+.detalhe-nome {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     -webkit-text-stroke: 1px white;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -62,7 +84,7 @@ html {
 }
 .nome {
     margin-top: 0%;
-    margin-bottom: 30%;
+    margin-bottom: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,12 +106,61 @@ html {
     text-align: center;
     font-size: 2.5em;
 }
-.icon {
-    margin-top: 0%;
+.dados {
+    background-image: url("img/Singularity.gif");
+}
+.titulo-pj {
+    margin-bottom: 3%;
+    font-size: 1.2em;
+    margin-bottom: 3%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
-    color: white;
+    text-align: center;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 1.7em;
 }
 
+
+.projetos {
+    margin-top: 3%;
+    margin-bottom: 3;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+
+}
+
+.foto-projeto {
+    width: 70%;
+    transition: transform 0.3s ease;
+    }
+
+    .foto-projeto:hover {
+        transform: scale(1.1);
+    
+
+    
+}
+
+.botao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    }
+
+    .botao:hover {
+        transform: scale(1.1);
+}
+
+.botao svg {
+    transform: scale(2.5);
+    margin-left: 20px;
+    margin-right: 20px;
+}
