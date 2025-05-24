@@ -184,3 +184,8 @@ html {
     margin-left: 20px;
     margin-right: 20px;
 }
+.descricao-pj {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
