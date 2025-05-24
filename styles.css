@@ -7,13 +7,15 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+
 }
 html {
     letter-spacing: 1.4px;
     font-family: "Lilita One", sans-serif;
     font-weight: 400;
     font-style: normal;
-
+         background-image: url('img/plano\ de\ fundo.gif');
+    background-size: cover;
 }
 
 .lilita-one-regular {
@@ -45,6 +47,26 @@ html {
 
 
 }
+.box-dados{
+    width: 90%;
+    height: 70%;
+    
+    
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 50px;
+    background-attachment: fixed;
+    background-color:gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(20, 2, 121, 0.5));
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);  
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+    border-color: gray;
+    border-style: solid;
+
+}
 
 .capa {
     width: 100%;
@@ -54,8 +76,7 @@ html {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('img/planodefundo.png');
-    background-size: cover;
+   
     background-attachment: fixed;
 }
 
@@ -71,7 +92,7 @@ html {
 
 }
 .detalhe-nome {
-    margin-top: 0%;
+    margin-top: 20px;
     margin-bottom: 0%;
     display: flex;
     justify-content: center;
@@ -94,21 +115,20 @@ html {
     text-align: center;
     font-size: 4.5em;
 }
-.cargo {
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    
-    -webkit-text-stroke: 2px white;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    font-size: 2.5em;
+.icones svg {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+  
+
 }
-.dados {
+    .icones svg:hover {
+        transform: scale(1.1);
+}
+/* .dados {
     background-image: url("img/Singularity.gif");
-}
+} */
 .titulo-pj {
     margin-bottom: 3%;
     font-size: 1.2em;
