@@ -9,19 +9,20 @@
     background-position: center;
 
 }
+
 html {
     letter-spacing: 1.4px;
     font-family: "Lilita One", sans-serif;
     font-weight: 400;
     font-style: normal;
-         background-image: url('img/plano\ de\ fundo.gif');
+    background-image: url('img/plano\ de\ fundo.gif');
     background-size: cover;
 }
 
 .lilita-one-regular {
-  font-family: "Lilita One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .container::after,
@@ -68,19 +69,20 @@ html {
     margin-bottom: 1%;
     border-radius: 20px;
     border-color: gray;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);  
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     border-style: solid;
     display: inline-block;
-    
+
 
 
 }
-.box-dados{
+
+.box-dados {
     width: 90%;
     height: 70%;
-    
-    
-    
+
+
+
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -88,8 +90,8 @@ html {
     padding-top: 50px;
     padding-bottom: 50px;
     background-attachment: fixed;
-    background-color:gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(20, 2, 121, 0.5));
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);  
+    background-color: gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(20, 2, 121, 0.5));
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
 
     border-radius: 20px;
@@ -106,7 +108,7 @@ html {
     justify-content: center;
     align-items: center;
     text-align: center;
-   
+
     background-attachment: fixed;
 }
 
@@ -121,6 +123,7 @@ html {
 
 
 }
+
 .detalhe-nome {
     margin-top: 20px;
     margin-bottom: 0%;
@@ -133,6 +136,7 @@ html {
     text-align: center;
     font-size: 1.7em;
 }
+
 .detalhe-nome-2 {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -143,8 +147,9 @@ html {
     -webkit-text-stroke: 1px white;
     -webkit-text-fill-color: transparent;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 3.5em;
 }
+
 .nome {
     margin-top: 0%;
     margin-bottom: 0%;
@@ -158,17 +163,20 @@ html {
     font-size: 4.5em;
     scale: 1.2;
 }
+
 .icones svg {
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
 
-  
+
 
 }
-    .icones svg:hover {
-        transform: scale(1.1);
+
+.icones svg:hover {
+    transform: scale(1.1);
 }
+
 /* .dados {
     background-image: url("img/Singularity.gif");
 } */
@@ -202,13 +210,13 @@ html {
 .foto-projeto {
     width: 70%;
     transition: transform 0.3s ease;
-    }
+}
 
-    .foto-projeto:hover {
-        transform: scale(1.1);
-    
+.foto-projeto:hover {
+    transform: scale(1.1);
 
-    
+
+
 }
 
 .botao {
@@ -216,10 +224,10 @@ html {
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
-    }
+}
 
-    .botao:hover {
-        transform: scale(1.1);
+.botao:hover {
+    transform: scale(1.1);
 }
 
 .botao svg {
@@ -227,17 +235,18 @@ html {
     margin-left: 20px;
     margin-right: 20px;
 }
+
 .descricao-pj {
     margin-top: 20px;
     text-align: center;
     color: white;
 }
 
-.box-3 img{
+.box-3 img {
     width: 19;
     margin-top: 9%;
     align-items: center;
     scale: 2.5;
 
-    
+
 }
