@@ -73,6 +73,7 @@
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
                     </div>
                     <p class="project-desc">A aplicação web visa auxiliar usuários no processo de seleção e visualização
                         de componentes para a montagem de computadores pessoais (PC Building)</p>
@@ -167,6 +168,56 @@
                             </svg> </a> </div>
                 </div>
             </div>
+            </div>
+        </section>
+        <!-- Nova viewport de publicações acadêmicas aceitas -->
+        <section id="article" class="article-section viewport">
+            <div class="article-container">
+                <div class="article-copy">
+                    <p class="article-kicker">Publicações acadêmicas</p>
+                    <h2 class="article-title">Detecção de Ataques ECN em L4S</h2>
+                    <p class="article-text">
+                        Artigo Científico aprovado e Premiado como Melhor artigo no WIARC 2026, Simpósio Brasileiro de Redes de Computadores e
+                        Sistemas Distribuídos.
+                    </p>
+                    <p class="article-summary">
+                        Detecção de Ataques ECN Não-Responsivos em Arquiteturas L4S por Meio de Aprendizado
+                        Supervisionado.
+                    </p>
+                    <p class="article-detail">
+                        Pesquisa em cibersegurança e análise de tráfego, com ambiente de redes virtualizado e
+                        automatizado usando Vagrant e Ansible, além do desenvolvimento de um classificador de Machine
+                        Learning baseado em árvores de decisão para atuar como IDS em roteadores.
+                    </p>
+                    <div class="article-tags" aria-label="Tags do artigo">
+                        <span class="article-tag">WIARC 2026</span>
+                        <span class="article-tag">Prêmio Melhor Artigo</span>
+                        <span class="article-tag">SBRC</span>
+                        <span class="article-tag">Cibersegurança</span>
+                        <span class="article-tag">L4S</span>
+                        <span class="article-tag">Machine Learning</span>
+                        <span class="article-tag">Vagrant</span>
+                    </div>
+                    <a class="article-anais-link" href="https://sol.sbc.org.br/index.php/wiarc/article/view/42896" target="_blank" rel="noreferrer">
+                        SBC OPEN LIB
+                    </a>
+                </div>
+
+                <div class="article-reader">
+                    <div class="article-toolbar" aria-label="Controles de leitura do artigo">
+                        <button type="button" class="article-btn" id="article-prev" aria-label="Página anterior">Anterior</button>
+                        <div class="article-page-state" aria-live="polite">
+                            <span id="article-page-number">1</span>
+                            <span>/</span>
+                            <span id="article-page-total">1</span>
+                        </div>
+                        <button type="button" class="article-btn" id="article-next" aria-label="Próxima página">Próxima</button>
+                    </div>
+                    <div class="article-canvas-shell">
+                        <canvas id="article-canvas" class="article-canvas" aria-label="Visualizador do artigo"></canvas>
+                        <p id="article-fallback" class="article-fallback">Carregando artigo...</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -312,7 +363,7 @@
 
                 <!-- Certificado 2 -->
                 <div class="certificate-card">
-                    <img src="img/php.png" alt="Desenvolvimento Web Completo Php MySql" class="cert-image">
+                    <img src="/img/php.png" alt="Desenvolvimento Web Completo Php MySql" class="cert-image">
                     <div class="cert-techs" aria-label="Tecnologias">
                         <span class="tech-tag">PHP</span>
                         <span class="tech-tag">MySQL</span>
@@ -326,7 +377,7 @@
 
                 <!-- Certificado 3 -->
                 <div class="certificate-card">
-                    <img src="img/cyber.png" alt="Introduction to Cybersecurity" class="cert-image">
+                    <img src="/img/cyber.png" alt="Introduction to Cybersecurity" class="cert-image">
                     <div class="cert-techs" aria-label="Tecnologias">
                         <span class="tech-tag">Segurança cibernética</span>
                         <span class="tech-tag">Práticas de Segurança</span>
@@ -340,7 +391,7 @@
 
                 <!-- Certificado 4 -->
                 <div class="certificate-card">
-                    <img src="img/python.png" alt="Programação Python do Zero ao Avançado + Projetos Reais 2024" class="cert-image">
+                    <img src="/img/python.png" alt="Programação Python do Zero ao Avançado + Projetos Reais 2024" class="cert-image">
                     <div class="cert-techs" aria-label="Tecnologias">
                         <span class="tech-tag">Programação Orientada a Objetos</span>
                         <span class="tech-tag">Python</span>
@@ -354,7 +405,7 @@
 
                 <!-- Certificado 5 -->
                 <div class="certificate-card">
-                    <img src="img/lara.png" alt="Introdução às Linguagens de Marcação e Script" class="cert-image">
+                    <img src="/img/lara.png" alt="Introdução às Linguagens de Marcação e Script" class="cert-image">
                     <div class="cert-techs" aria-label="Tecnologias">
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
@@ -368,7 +419,7 @@
 
                 <!-- Certificado 6 -->
                 <div class="certificate-card">
-                    <img src="img/IOT.png" alt="Introdução à IoT" class="cert-image">
+                    <img src="/img/IOT.png" alt="Introdução à IoT" class="cert-image">
                     <div class="cert-techs" aria-label="Tecnologias">
                         <span class="tech-tag">IoT</span>
                         <span class="tech-tag">Internet das Coisas</span>
@@ -419,10 +470,9 @@
             </div>
         </div>
     </section>
-    </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="script.js" defer></script>
 </body>
 
 </html>
-    </main>

@@ -79,6 +79,137 @@ function replayAnimation(el, cls = 'animate') {
     el.classList.add(cls);
 }
 
+const articlePdfPath = 'img/artigo-aceito.pdf';
+const articleCanvas = document.getElementById('article-canvas');
+const articleFallback = document.getElementById('article-fallback');
+const articlePrevButton = document.getElementById('article-prev');
+const articleNextButton = document.getElementById('article-next');
+const articlePageNumber = document.getElementById('article-page-number');
+const articlePageTotal = document.getElementById('article-page-total');
+
+let articlePdfDocument = null;
+let articleCurrentPage = 1;
+let articleRendering = false;
+let articlePendingPage = null;
+
+function setArticleFallback(message, visible = true) {
+    if (!articleFallback) return;
+    articleFallback.textContent = message;
+    articleFallback.hidden = !visible;
+}
+
+function updateArticleControls() {
+    if (articlePrevButton) {
+        articlePrevButton.disabled = !articlePdfDocument || articleCurrentPage <= 1;
+    }
+    if (articleNextButton) {
+        articleNextButton.disabled = !articlePdfDocument || articleCurrentPage >= (articlePdfDocument?.numPages ?? 1);
+    }
+    if (articlePageNumber) {
+        articlePageNumber.textContent = String(articleCurrentPage);
+    }
+    if (articlePageTotal) {
+        articlePageTotal.textContent = String(articlePdfDocument?.numPages ?? 1);
+    }
+}
+
+async function renderArticlePage(pageNumber) {
+    if (!articlePdfDocument || !articleCanvas) return;
+
+    articleRendering = true;
+    setArticleFallback('Carregando página...', true);
+
+    try {
+        const page = await articlePdfDocument.getPage(pageNumber);
+        const canvasContext = articleCanvas.getContext('2d');
+        const shell = articleCanvas.parentElement;
+        const availableWidth = Math.max(260, (shell?.clientWidth ?? 0) - 56);
+        const baseViewport = page.getViewport({ scale: 1 });
+        const scale = (availableWidth / baseViewport.width) * 0.84;
+        const devicePixelRatio = window.devicePixelRatio || 1;
+        const viewport = page.getViewport({ scale });
+
+        articleCanvas.width = Math.floor(viewport.width * devicePixelRatio);
+        articleCanvas.height = Math.floor(viewport.height * devicePixelRatio);
+        articleCanvas.style.width = `${Math.floor(viewport.width)}px`;
+        articleCanvas.style.height = `${Math.floor(viewport.height)}px`;
+
+        canvasContext.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+        await page.render({
+            canvasContext,
+            viewport,
+        }).promise;
+
+        articleCurrentPage = pageNumber;
+        setArticleFallback('', false);
+        updateArticleControls();
+    } catch (error) {
+        console.error('Falha ao renderizar o artigo:', error);
+        setArticleFallback('Não foi possível renderizar esta página do artigo.', true);
+    } finally {
+        articleRendering = false;
+        if (articlePendingPage !== null) {
+            const nextPage = articlePendingPage;
+            articlePendingPage = null;
+            renderArticlePage(nextPage);
+        }
+    }
+}
+
+async function loadArticlePdf() {
+    if (!articleCanvas || !window.pdfjsLib) {
+        setArticleFallback('Leitor indisponível no momento. Verifique o carregamento do PDF.js.', true);
+        updateArticleControls();
+        return;
+    }
+
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    try {
+        setArticleFallback('Abrindo artigo...', true);
+        articlePdfDocument = await window.pdfjsLib.getDocument(articlePdfPath).promise;
+        articleCurrentPage = 1;
+        updateArticleControls();
+        await renderArticlePage(articleCurrentPage);
+    } catch (error) {
+        console.error('Falha ao carregar o artigo:', error);
+        setArticleFallback('Não foi possível abrir o PDF do artigo. Verifique se o arquivo existe em img/artigo-aceito.pdf.', true);
+        articlePdfDocument = null;
+        updateArticleControls();
+    }
+}
+
+function queueArticlePage(pageNumber) {
+    if (!articlePdfDocument) return;
+
+    const targetPage = Math.min(Math.max(1, pageNumber), articlePdfDocument.numPages);
+    if (targetPage === articleCurrentPage) return;
+
+    if (articleRendering) {
+        articlePendingPage = targetPage;
+        return;
+    }
+
+    renderArticlePage(targetPage);
+}
+
+if (articlePrevButton) {
+    articlePrevButton.addEventListener('click', () => queueArticlePage(articleCurrentPage - 1));
+}
+
+if (articleNextButton) {
+    articleNextButton.addEventListener('click', () => queueArticlePage(articleCurrentPage + 1));
+}
+
+if (articleCanvas) {
+    window.addEventListener('resize', () => {
+        if (articlePdfDocument) {
+            queueArticlePage(articleCurrentPage);
+        }
+    });
+}
+
 // Função para animar hero section (replay)
 function animarHero() {
     const heroName = document.querySelector('.hero .animate-name');
@@ -102,6 +233,11 @@ const elementObserver = new IntersectionObserver((entries) => {
 
             // Título de projetos
             if (el.classList.contains('projects-title')) {
+                replayAnimation(el);
+            }
+
+            // Título do artigo
+            if (el.classList.contains('article-title')) {
                 replayAnimation(el);
             }
 
@@ -138,6 +274,27 @@ document.querySelectorAll('.project-card').forEach(card => elementObserver.obser
 // Observar título dos projetos
 const projectsTitle = document.querySelector('.projects-title');
 if (projectsTitle) elementObserver.observe(projectsTitle);
+
+// Observar seção do artigo
+const articleSection = document.querySelector('#article');
+if (articleSection) {
+    const articleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                loadArticlePdf();
+                articleObserver.disconnect();
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    }, { threshold: 0.25 });
+    articleObserver.observe(articleSection);
+}
+
+// Observar título do artigo
+const articleTitle = document.querySelector('.article-title');
+if (articleTitle) elementObserver.observe(articleTitle);
 
 // Observar seção de Certificados
 const certificatesSection = document.querySelector('#certificates');
